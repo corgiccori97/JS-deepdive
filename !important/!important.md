@@ -31,3 +31,15 @@
     > -true; // -1 (불리언 값을 숫자로 변환) <br>
     > -'Hello'; // NaN (문자열은 숫자로 타입 변환 불가)
 
+## :bulb: 객체 프로퍼티 접근
+```
+var person = {
+    name: 'Kim'
+};
+```
+- 마침표 표기법
+    - console.log(person.name); // Kim
+- 대괄호 표기법
+    - :eight_spoked_asterisk: 내부에 지정하는 프로퍼티 키는 반드시 따옴표로 감싼 문자열일 것 :eight_spoked_asterisk:
+    - console.log(person['name']); // Kim
+
