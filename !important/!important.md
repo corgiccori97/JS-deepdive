@@ -43,3 +43,11 @@ var person = {
     - :eight_spoked_asterisk: 내부에 지정하는 프로퍼티 키는 반드시 따옴표로 감싼 문자열일 것 :eight_spoked_asterisk:
     - console.log(person['name']); // Kim
 
+## :bulb: 원시 값과 객체
+- 원시 값을 변수에 할당하면 변수(확보된 메모리 공간)에는 :star:실제 값이:star: 저장 
+- 객체 값을 변수에 할당하면 변수(확보된 메모리 공간)에는 :star:참조 값이:star: 저장
+> 값에 의한 전달 (pass by value)
+>> 원시 값을 갖는 변수를 다른 변수에 할당했을 때 원본의 원시 값이 복사되어 전달되는 것
+
+> 참조에 의한 전달 (pass by reference)
+>> 객체를 가리키는 변수를 다른 변수에 할당했을 때 원본의 참조 값이 복사되어 전달되는 것
