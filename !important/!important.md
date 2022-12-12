@@ -51,3 +51,36 @@ var person = {
 
 > 참조에 의한 전달 (pass by reference)
 >> 객체를 가리키는 변수를 다른 변수에 할당했을 때 원본의 참조 값이 복사되어 전달되는 것
+
+## :bulb: 얕은 복사와 깊은 복사
+- 얕은 복사
+    - 객체를 프로퍼티 값으로 갖는 객체의 경우 한 단계까지 복사하는 것
+        ```
+        const o = { x: { y: 1 } };
+        // 얕은 복사
+        const c1 = { ...o };
+        console.log(c1 === o); //false
+        console.log(c1.x === o.x); // true
+        ```
+    - 객체를 할당한 변수를 다른 변수에 할당하는 것을 **얕은 복사라고 하기도 함**
+        ```
+        const o = { x: 1 };
+        const c2 = o;
+        console.log(c2 === o); // true 
+        ```
+- 깊은 복사
+    - 객체를 프로퍼티 값으로 갖는 객체의 경우 중첩되어 있는 객체까지 모두 복사하는 것
+        - :snake: _코드 내용 이해 안되니 나중에 다시 확인하기_ 
+        ```
+        const _ = require('lodash');
+        // 깊은 복사
+        const c2 = _.cloneDeep(o);
+        console.log(c2 === o); // false
+        console.log(c2.x === o.x); // false
+        ```
+    - 원시 값을 할당한 변수를 다른 변수에 할당하는 것을 **깊은 복사라고 하기도 함**
+        ```
+        const v = 1;
+        const c1 = v;
+        console.log(c1 === v); // true
+        ```
