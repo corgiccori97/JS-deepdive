@@ -50,3 +50,23 @@ const me = new Person2('me');
 
 console.log(Person2.prototype === me.__proto__); // true
 
+console.log('-----리터럴 표기법에 의해 생성된 객체의 생성자 함수와 프로토타입-----');
+// 객체 리터럴
+const obj = {};
+
+// 함수 리터럴
+const add = function (a, b) { return a + b; };
+
+// 배열 리터럴
+const arr = [1, 2, 3];
+
+// 정규 표현식 리터럴
+const regexp = /is/ig;
+
+console.log(obj.constructor === Object); // true
+console.log(add.constructor === Function); // true
+console.log(arr.constructor === Array); // true
+console.log(regexp.constructor === RegExp); // true
+
+console.log(add.__proto__);
+

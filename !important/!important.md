@@ -88,3 +88,13 @@ var person = {
         const c1 = v;
         console.log(c1 === v); // true
         ```
+
+## :bulb: 전역 객체
+- 코드가 실행되기 이전 단계에 자바스크립트 엔진에 의해 생성되는 특수한 객체
+- 브라우저에서는 window, 서버 사이드 환경(Node.js)에서는 global 객체를 의미
+- 전역 객체는 표준 빌트인 객체(Object, String, Number, Function, Array...)와 환경에 따른 호스트 객체(클라이언트 Web API/Node.js의 호스트 API), var 키워드로 선언한 전역 변수와 전역 함수를 프로퍼티로 가짐
+```
+// 전역 객체 window는 브라우저에 종속적이므로 브라우저 환경에서만 실행할 것
+// 빌트인 객체인 Object는 전역 객체 window의 프로퍼티
+window.Object === Object // true
+```
