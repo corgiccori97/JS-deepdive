@@ -98,3 +98,52 @@ Object.setPrototypeOf(me3, parent3);
 me3.sayHello3();
 
 console.log(me3.constructor === Object); // true
+
+console.log('-----직접 상속-----');
+console.log('1.Object.create 사용');
+
+// 프로토타입이 null인 객체 생성. 이 객체는 프로토타입 체인의 종점에 위치
+let obj = Object.create(null);
+console.log(Object.getPrototypeOf(obj) === null); // true
+
+
+// console.log(obj.toString()); // Uncaught TypeError TypeError: obj.toString is not a function
+
+// obj => Object.prototype => null
+// obj = {}; 와 동일
+obj = Object.create(Object.prototype); 
+console.log(Object.getPrototypeOf(obj) === Object.prototype); // true
+
+obj = Object.create(Object.prototype, {
+    x: { value: 1, writable:true, enumerable: true, configurable: true }
+});
+
+console.log(obj.x); // 1
+console.log(Object.getPrototypeOf(obj) === Object.prototype); // true
+
+// 임의의 객체 상속받기
+const myProto = { x: 10 };
+obj = Object.create(myProto);
+
+console.log(obj.x); // 10
+console.log(Object.getPrototypeOf(obj)); // { x: 10 }
+console.log(Object.getPrototypeOf(obj) === myProto); // true
+
+const obj2 = Object.create(null);
+obj2.a = 1;
+
+console.log(Object.getPrototypeOf(obj2) === null); // true
+
+// console.log(obj2.hasOwnProperty('a')); // Uncaught TypeError TypeError: obj2.hasOwnProperty is not a function
+console.log(Object.prototype.hasOwnProperty.call(obj2, 'a'));  // true
+
+console.log('----객체 리터럴 내부에서 __proto__에 의한 직접 상속-----');
+const myProto3 = { x: 10 };
+
+const obj3 = {
+    y: 20,
+    __proto__: myProto3
+};
+
+console.log(obj3.x, obj3.y); // 10 20
+console.log(Object.getPrototypeOf(obj3) === myProto3); // true
