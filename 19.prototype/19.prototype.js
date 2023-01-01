@@ -69,4 +69,3 @@ console.log(arr.constructor === Array); // true
 console.log(regexp.constructor === RegExp); // true
 
 console.log(add.__proto__);
-
