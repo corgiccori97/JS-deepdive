@@ -13,3 +13,4 @@ function foo (a) {
 }
 
 foo(20);
+
